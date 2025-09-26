@@ -7,10 +7,19 @@ app = Flask(__name__)
 def say_hello():
 
         return '<p>Hello, World, I am a Flask app!</p>' \
-                '<a href="/about">about page</a>'
-
+               '<a href="/about">About Page</a>' \
+	       '<a href="/contact">Contact Page</a>'
 
 @app.route('/about')
 def about_page():       
 
         return '<p>Hello, World, I am the about page!</p>'
+               '<a href="/">Home Page</a>' \
+               '<a href="/contact">Contact Page</a>'
+
+@app.route('/contact')
+def about_page():
+
+        return '<p>Hello, World, I am the about page!</p>'
+               '<a href="/">Home Page</a>' \
+               '<a href="/about">About Page</a>'
