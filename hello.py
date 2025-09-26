@@ -1,4 +1,4 @@
-hello.py                                  
+#hello.py                                  
 from flask import Flask
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def say_hello():
 
-        return '<p>Hello, World, I am a Flask app!</p>' \
+        return '<p>Welcome! I am a Flask app!</p>' \
                '<a href="/about">About Page</a>' \
 	       '<a href="/contact">Contact Page</a>'
 
