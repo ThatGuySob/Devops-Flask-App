@@ -8,4 +8,4 @@ python -m venv .my_venv
 
 source .my_venv/bin/activate
 
-pip install -y flask
+pip install flask
