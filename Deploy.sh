@@ -9,3 +9,5 @@ python -m venv .my_venv
 source .my_venv/bin/activate
 
 pip install flask
+
+cat <<EOF > hello.py
