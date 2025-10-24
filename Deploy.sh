@@ -1,5 +1,5 @@
 #!/bin/bash
-/
+
 sudo apt update && sudo apt upgrade
 
 sudo apt install -y nano vim python-is-python3 python3-venv python3-pip
@@ -8,12 +8,24 @@ python -m venv .my_venv
 
 source .my_venv/bin/activate
 
-pip install flask
-
 cat <<EOL > hello.py
 from flask import Flask
+import redis, json, time
 
 app = Flask(__name__)
+
+r = redis.Redis(host='redis-server', port=6379, decode_responses=True)
+
+def cache(key, html_func):
+    data = r.get(key)
+    if data:
+        data = json.loads(data)
+        # 600 seconds == 10 minutes
+        if time.time() - data['time'] < 600:
+            return data['html']
+    html = html_func()
+    r.set(key, json.dumps({'html': html, 'time': time.time()}))
+    return html
 
 @app.route('/')
 def say_hello():

@@ -6,6 +6,8 @@ COPY Deploy.sh .
 
 RUN chmod +x ./Deploy.sh
 
+RUN pip install flask redis
+
 EXPOSE 5000
 
 CMD ["sh", "Deploy.sh"]
