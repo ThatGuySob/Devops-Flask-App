@@ -1,5 +1,5 @@
 #!/bin/bash
-
+/
 sudo apt update && sudo apt upgrade
 
 sudo apt install -y nano vim python-is-python3 python3-venv python3-pip
